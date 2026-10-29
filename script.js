@@ -32,6 +32,16 @@ var GITHUB = "https://github.com/Prapthikotian";
     else { del=false; r=(r+1)%roles.length; setTimeout(tick,300); }
   })();
 
+  // slide-up entrance + glow that follows the pointer
+  var targets=document.querySelectorAll(".box,.tl,.contact-list a,section h2,.about p");
+  if("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }); },{threshold:.12});
+    targets.forEach(function(el,i){ el.classList.add("rv"); el.style.animationDelay=(i%3)*110+"ms"; io.observe(el); });
+  }
+  document.querySelectorAll(".box,.contact-list a").forEach(function(el){
+    el.addEventListener("pointermove",function(e){ var r=el.getBoundingClientRect(); el.style.setProperty("--mx",(e.clientX-r.left)+"px"); el.style.setProperty("--my",(e.clientY-r.top)+"px"); });
+  });
+
   // project filter
   var fb=document.querySelectorAll(".filters button"), cards=document.querySelectorAll(".proj");
   fb.forEach(function(b){ b.addEventListener("click",function(){

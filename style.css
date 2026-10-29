@@ -74,3 +74,13 @@ footer{padding:30px 0 40px;text-align:center;color:var(--muted);font-size:14px}
 @keyframes blink{50%{opacity:0}}
 @media (max-width:820px){.hero .wrap,.g3,.g2{grid-template-columns:1fr}.hero{padding-top:36px}nav a{padding:6px 9px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* slide-up reveal + glow on cards */
+.rv{opacity:0}
+.rv.in{opacity:1;transform:none;animation:slideUp .85s cubic-bezier(.2,.75,.2,1) backwards}
+@keyframes slideUp{from{opacity:0;transform:translateY(56px) scale(.97)}}
+.box,.contact-list a{background-image:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--brand) 16%,transparent),transparent 65%)}
+.box:hover,.contact-list a:hover{border-color:var(--brand);box-shadow:0 0 0 1px var(--brand),0 20px 50px -14px color-mix(in srgb,var(--brand) 55%,transparent),0 0 36px -6px color-mix(in srgb,var(--accent) 45%,transparent)}
+.chips li{transition:box-shadow .25s,border-color .25s}
+.chips li:hover{border-color:var(--brand);box-shadow:0 0 14px -2px color-mix(in srgb,var(--brand) 55%,transparent)}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1}}
