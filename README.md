@@ -1,15 +1,21 @@
-# Prapthi - Portfolio Website
+# Prapthi – Portfolio
+React + Vite + React Three Fiber + Framer Motion.
 
-Static website (HTML, CSS, JavaScript). No build step needed.
+## Run
+    npm install
+    npm run dev
 
-## Files
-- index.html - page content
-- style.css - all styling (light/dark theme, responsive layout)
-- script.js - typing effect, theme toggle, project filter, social links
-- .nojekyll - tells GitHub Pages to serve files as they are
+## Edit content
+Everything lives in `src/data/portfolio.js` (text, project links, contact details).
+Add real project links there (`github`, `demo`); buttons appear only when a link is set.
 
-## Deploy on GitHub Pages
-1. Create a new public repository on GitHub (for example `my-portfolio`, or `Prapthikotian.github.io` for a root URL).
-2. Upload everything inside this folder (index.html, style.css, script.js, .nojekyll, README.md) to the repository root.
-3. Go to Settings > Pages. Under Build and deployment choose Source: Deploy from a branch, Branch: main, Folder: / (root). Click Save.
-4. Wait 1-2 minutes. Your site will be live at https://Prapthikotian.github.io/my-portfolio/
+## Contact form
+Copy `.env.example` to `.env`, create a free form at formspree.io, paste the ID.
+For GitHub Pages add it as a repository secret named `VITE_FORMSPREE_ID`.
+Without it the form shows an honest "not configured" notice with an email fallback.
+
+## Deploy (GitHub Pages)
+1. Push to a GitHub repo on branch `main`.
+2. Settings → Pages → Source: **GitHub Actions**.
+3. The included workflow builds and publishes on every push.
+Resume: `public/Prapthi_Resume.pdf` (converted from your DOCX). Photo: `public/prapthi.jpg`.
